@@ -27,7 +27,7 @@ data = {
             "browserInfo": [
                 {
                     "key": "userAgent",
-                    "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+                    "value": header['User-Agent']
                 },
                 {"key": "language", "value": "zh-CN"},
                 {"key": "hardware_concurrency", "value": 8},
@@ -68,10 +68,11 @@ def pic_download(url, name):
     """
     图片下载
     :param url:
-    :param type:
+    :param name:
     :return:
     """
-    save_path = os.getcwd() + '/' + 'images/'
+    # os.pardir
+    save_path = os.path.dirname(os.getcwd()) + '/data/images/'
 
     if not os.path.exists(save_path):
         os.mkdir(save_path)
@@ -83,9 +84,9 @@ def pic_download(url, name):
     return img_path
 
 
-def get_yunpian_pic():
+def get_yunpian_pic(count=500):
     cur = 1
-    for i in range(500):
+    for i in range(count):
         res = get_captcha()
         if res:
             pic_download(res['bg'], '{}captcha'.format(cur))
