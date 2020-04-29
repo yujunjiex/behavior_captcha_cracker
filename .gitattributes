@@ -1,1 +1,2 @@
 slider_captcha/yunpian/checkpoints/yolov3_ckpt.pth filter=lfs diff=lfs merge=lfs -text
+slider_captcha/yidun/checkpoints/yolov3_ckpt.pth filter=lfs diff=lfs merge=lfs -text
