@@ -1,11 +1,10 @@
 # coding: utf-8
-import os
 import time
 import json
 import random
 import execjs
 import requests
-from slider_captcha.spider_tools.pic_download import pic_download
+from spider_tools.pic_download import pic_download
 
 
 def _load_js():

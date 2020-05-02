@@ -2,7 +2,7 @@
 import execjs
 import requests
 import json
-from slider_captcha.spider_tools.pic_download import pic_download
+from spider_tools.pic_download import pic_download
 
 
 def _load_js():
