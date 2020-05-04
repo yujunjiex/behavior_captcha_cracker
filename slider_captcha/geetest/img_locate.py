@@ -236,10 +236,13 @@ class ImgProcess:
 
 
 if __name__ == '__main__':
-    img_process = ImgProcess()
-    img1 = img_process.get_merge_image('data/images/' + "full_bg" + '.jpg')
-    img2 = img_process.get_merge_image('data/images/' + "bg" + '.jpg')
-    img1.show()
-    img2.show()
-    distance = int(img_process.get_gap(img1, img2) - 7)
-    print(distance)
+    for i in range(1, 25):
+
+        img_process = ImgProcess()
+        img1 = img_process.get_merge_image('data/' + f"{i}full_bg" + '.jpg')
+        img2 = img_process.get_merge_image('data/' + f"{i}bg" + '.jpg')
+        # img1.show()
+        # img2.show()
+        img2.save(f'data/images/{i}captcha.jpg')
+        distance = int(img_process.get_gap(img1, img2) - 7)
+        print(distance)
