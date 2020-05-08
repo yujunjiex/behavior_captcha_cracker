@@ -20,14 +20,14 @@ def _load_js():
 jst, fp = _load_js()
 
 url = 'http://c.dun.163yun.com/api/v2/get'
-header = {
-    "Referer": "https://www.yunpian.com/product/captcha",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
-}
 slider_id = '5a0e2d04ffa44caba3f740e6a8b0fa84'
 referer = 'https://www.163yun.com/trial/sense'
 # callback实际编码后发现是可以随便填的，可能当请求后会将callback和其他参数构建键值对所以导致浏览器上的修改是不能随便的
 callback = '__JSONP_abcdefg_0'
+header = {
+    "Referer": referer,
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+}
 sess = requests.session()
 
 

@@ -20,14 +20,14 @@ def _load_js():
 jst, fp = _load_js()
 
 url = 'http://c.dun.163yun.com/api/v2/get'
-header = {
-    "Referer": "https://www.yunpian.com/product/captcha",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
-}
 slider_id = '5a0e2d04ffa44caba3f740e6a8b0fa84'
 referer = 'https://www.163yun.com/trial/sense'
 # callback实际编码后发现是可以随便填的，可能当请求后会将callback和其他参数构建键值对所以导致浏览器上的修改是不能随便的
 callback = '__JSONP_abcdefg_0'
+header = {
+    "Referer": referer,
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+}
 sess = requests.session()
 
 
@@ -65,14 +65,15 @@ if __name__ == '__main__':
     import random
     token = get_token()
 
-    cur = 1
-    for i in range(500):
+    cur = 195
+    for i in range(1):
         content = sess.get(url=url, params=get_params(token), headers=header).text
         content = content.replace(callback, '')[1:-2]
         res = json.loads(content)
         print(res)
         if res['msg'] == 'ok':
-            pic_download(res['data']['bg'][0], '{}'.format(res['data']['front']))
+            # pic_download(res['data']['bg'][0], '{}'.format(res['data']['front']))
+            pic_download(res['data']['bg'][0], '{}captcha'.format(cur))
             print('{}成功！'.format(cur))
             cur += 1
         else:
