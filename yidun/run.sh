@@ -10,6 +10,6 @@ elif [ $1 = "classifier_train" ]; then
 	../darknet classifier train config/chinese_classify.data config/new_chinese_classify.cfg classify_checkpoints/new_chinese_classify.backup
 
 elif [ $1 = "classifier_valid" ]; then
-	../darknet classifier valid config/chinese_classify.data config/chinese_classify.cfg classify_checkpoints/chinese_classify.backup
+	../darknet classifier valid config/chinese_classify.data config/new_chinese_classify.cfg classify_checkpoints/new_chinese_classify_72.weights
 
 fi
