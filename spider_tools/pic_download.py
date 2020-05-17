@@ -11,6 +11,7 @@ def pic_download(url, name):
     :return:
     """
     # os.pardir
+    # save_path = '/Users/mac/PycharmProjects/behavior_captcha_cracker/click_captcha/yidun/classify_data/images/'
     save_path = os.path.dirname(os.getcwd()) + '/data/images/'
 
     if not os.path.exists(save_path):

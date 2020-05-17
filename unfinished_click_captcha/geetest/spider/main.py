@@ -1,9 +1,8 @@
 # coding: utf-8
 import time
-import random
 import requests
 import json
-from click_captcha.geetest.spider.encrypt import Encrypyed
+from unfinished_click_captcha.geetest.spider.encrypt import Encrypyed
 from spider_tools.pic_download import pic_download
 
 
