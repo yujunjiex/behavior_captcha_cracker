@@ -130,3 +130,13 @@ dmypy.json
 
 # idea
 .idea/
+
+# Mac OS
+.DS_Store
+
+# self
+slider_captcha/weights/*
+slider_captcha/common_train/logs/*
+slider_captcha/common_train/checkpoints/*
+slider_captcha/yclidun/checkpoints/*
+slider_captcha/yunpian/checkpoints/*
