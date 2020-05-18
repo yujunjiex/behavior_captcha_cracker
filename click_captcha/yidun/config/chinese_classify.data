@@ -1,6 +1,6 @@
 classes=1962
 train  = classify_data/train.list
 valid  = classify_data/valid.list
-labels = classify_data/labels.txt
+labels = /home/mist/behavior_captcha_cracker/click_captcha/yidun/classify_data/labels.txt
 backup = classify_checkpoints
 top=10

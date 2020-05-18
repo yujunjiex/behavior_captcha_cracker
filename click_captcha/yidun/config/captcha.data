@@ -1,6 +1,6 @@
 classes= 1
 train = data/train.txt
 valid = data/valid.txt
-names = data/classes.names
+names = /home/mist/behavior_captcha_cracker/click_captcha/yidun/data/classes.names
 backup = checkpoints
 

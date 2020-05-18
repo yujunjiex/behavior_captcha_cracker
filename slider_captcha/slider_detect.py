@@ -11,14 +11,15 @@ from io import BytesIO
 
 import torch
 from torch.autograd import Variable
+Cur_Path = os.path.abspath(os.path.dirname(__file__))
 
 
 class SliderDetector:
     def __init__(self):
         self.opt = {
-            "model_def": "common_train/config/yolov3-captcha.cfg",
-            "weights_path": "common_train/checkpoints/yolov3_ckpt.pth",
-            "class_path": "common_train/data/classes.names",
+            "model_def": os.path.join(Cur_Path, "common_train/config/yolov3-captcha.cfg"),
+            "weights_path": os.path.join(Cur_Path, "common_train/checkpoints/yolov3_ckpt.pth"),
+            "class_path": os.path.join(Cur_Path, "common_train/data/classes.names"),
             "conf_thres": 0.8,
             "nms_thres": 0.4,
             "img_size": 416,
@@ -65,6 +66,8 @@ class SliderDetector:
         spend_time = time.time() - begin_time
         return spend_time, float(conf), float(x_center)
 
+
+slider_detector = SliderDetector()
 
 if __name__ == '__main__':
     import requests

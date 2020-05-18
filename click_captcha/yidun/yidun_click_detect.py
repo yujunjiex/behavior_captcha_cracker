@@ -1,21 +1,23 @@
 # coding: utf-8
 import os
-from darknet import load_net, load_meta, detect, classify, load_image
+from click_captcha.yidun.darknet import load_net, load_meta, detect, classify, load_image
 import time
 from PIL import Image
+Cur_Path = os.path.abspath(os.path.dirname(__file__))
 
 
 class YidunClickDetector:
-    temp_dir = './server_temp/'
+    temp_dir = os.path.join(Cur_Path, './server_temp/')
 
     def __init__(self):
         self.detect_modu = None
         self.classify_modu = None
-        self.load_dtc_module(b"./config/yolov3-captcha.cfg", b"./checkpoints/yolov3-captcha_1800.weights",
-                             b"./config/captcha.data")
-        self.load_classify_module(b"./config/new_chinese_classify.cfg",
-                                  b"./classify_checkpoints/new_chinese_classify_72.weights",
-                                  b"./config/chinese_classify.data")
+        self.load_dtc_module(os.path.join(Cur_Path, "./config/yolov3-captcha.cfg").encode(),
+                             os.path.join(Cur_Path, "./checkpoints/yolov3-captcha_1800.weights").encode(),
+                             os.path.join(Cur_Path, "./config/captcha.data").encode())
+        self.load_classify_module(os.path.join(Cur_Path, "./config/new_chinese_classify.cfg").encode(),
+                                  os.path.join(Cur_Path, "./classify_checkpoints/new_chinese_classify_72.weights").encode(),
+                                  os.path.join(Cur_Path, "./config/chinese_classify.data").encode())
         if not os.path.exists(self.temp_dir):
             os.mkdir(self.temp_dir)
 
@@ -48,7 +50,7 @@ class YidunClickDetector:
                 chinese_char = input_imgs.crop((a, b, c, d))
                 # 将截取的图片规范化为64*64*3
                 normal_img = chinese_char.resize((64, 64), resample=Image.BICUBIC)
-                path = './server_temp/{}.jpg'.format(self.get_ms_timestamp())
+                path = os.path.join(self.temp_dir, '{}.jpg'.format(self.get_ms_timestamp()))
                 normal_img.save(path)
 
                 # 重新载入为DarknetImage类型
@@ -80,6 +82,8 @@ class YidunClickDetector:
         """毫秒级时间戳"""
         return int(time.time() * 1000)
 
+
+click_detector = YidunClickDetector()
 
 if __name__ == '__main__':
     import requests
