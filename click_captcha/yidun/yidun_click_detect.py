@@ -64,7 +64,11 @@ class YidunClickDetector:
 
         os.remove(input_imgs_path)
         if len(predict_item) >= len(target_words):
-            order_rets = [predict_item[word] for word in target_words]
+            order_rets = []
+            for word in target_words:
+                if word not in predict_item:  # 有文字未预测到
+                    return False
+                order_rets.append(predict_item[word])
             spend_time = time.time() - begin_time
             return spend_time, order_rets, target_words
         else:

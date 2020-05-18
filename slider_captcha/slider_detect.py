@@ -64,7 +64,7 @@ class SliderDetector:
         box_h = y2 - y1
         x_center = x1 + (box_w / 2)  # 目标x轴中心点(用于计算拖动距离)
         spend_time = time.time() - begin_time
-        return spend_time, float(conf), float(x_center)
+        return spend_time, float(conf), float(x_center), float(box_w)
 
 
 slider_detector = SliderDetector()
