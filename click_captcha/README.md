@@ -74,7 +74,16 @@ https://github.com/pjreddie/darknet
 │       └── yidun_click_detect.py	# 点选识别功能封装
 ```
 
+## darknet编译
 
+项目中的darknet是基于Makefile配置文件自行编译的，请根据自己机器修改Makefile，修改方式见文末Tips。
+1. 克隆darknet框架
+```
+git clone https://github.com/pjreddie/darknet
+```
+
+2. 修改Makefile配置
+3. `make` 开始编译
 
 ## 定位器
 
