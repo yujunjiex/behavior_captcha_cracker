@@ -11,7 +11,7 @@ Flask == 1.1.1
 # slider_captcha/geetest/img_locate.py: 7
 # slider_captcha/slider_detect.py: 9
 # slider_captcha/utils/datasets.py: 6
-Pillow == 6.1.0
+Pillow == 9.0.1
 
 # slider_captcha/detect.py: 3
 # slider_captcha/slider_detect.py: 2
