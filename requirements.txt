@@ -62,7 +62,7 @@ matplotlib == 3.1.0
 # slider_captcha/utils/augmentations.py: 3
 # slider_captcha/utils/datasets.py: 5
 # slider_captcha/utils/utils.py: 9
-numpy == 1.16.4
+numpy == 1.22.0
 
 # unfinished_click_captcha/geetest/spider/encrypt.py: 10,11
 pycryptodome == 3.9.7
