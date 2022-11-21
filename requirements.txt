@@ -126,7 +126,7 @@ solar-radiation-model == 0.0.20
 swiftcodegen == 0.3
 
 # slider_captcha/utils/logger.py: 1
-tensorflow == 2.2.0
+tensorflow == 2.9.3
 
 # slider_captcha/train.py: 29
 terminaltables == 3.1.0
